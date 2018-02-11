@@ -27,7 +27,13 @@ Solution:
     sudo yum install -y docker docker-compose git
     ```
 
-3. Clone this repository:
+3. Start the docker daemon
+
+    ```
+    sudo systemctl start docker
+    ```
+
+4. Clone this repository:
 
     ```bash
     git clone https://github.com/ichundu/docker-blue-green.git
@@ -39,7 +45,7 @@ Solution:
     cd docekr-blue-green
     ```
 
-4. With only one command we will download and run two `nginx` and one `haproxy` containers as required:
+5. With only one command we will download and run two `nginx` and one `haproxy` containers as required:
 
     ```bash
     sudo docker-compose up
