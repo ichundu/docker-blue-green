@@ -18,13 +18,13 @@ Solution:
     Ubuntu 16.04:
 
     ```bash
-    sudo apt update && sudo apt install docker.io docker-compose git
+    sudo apt update && sudo apt install -y docker.io docker-compose git
     ```
 
     RHEL 7:
 
     ```bash
-    sudo yum install docker docker-compose git
+    sudo yum install -y docker docker-compose git
     ```
 
 3. Clone this repository:
