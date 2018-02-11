@@ -1,0 +1,22 @@
+version: "2"
+services:
+  blue:
+    container_name: nginx-blue
+    image: nginx:stable-alpine
+    volumes:
+      - ./blue:/usr/share/nginx/html
+  green:
+    container_name: nginx-green
+    image: nginx:stable-alpine
+    volumes:
+      - ./green:/usr/share/nginx/html
+  haproxy:
+    container_name: haproxy
+    image: haproxy:alpine
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+    ports:
+      - "80:80"
+    depends_on: 
+      - blue
+      - green
