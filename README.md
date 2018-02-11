@@ -15,17 +15,25 @@ Solution:
 1. Spinup a Ubuntu 16.04 or RHEL 7 (or CentOS 7) box.
 2. Install `docker`, `docker-compose` and `git`:
 
-    Ubuntu 16.04:
+    - Ubuntu 16.04:
 
-    ```bash
-    sudo apt update && sudo apt install -y docker.io docker-compose git
-    ```
+        ```bash
+        sudo apt update && sudo apt install -y docker.io docker-compose git
+        ```
 
-    RHEL 7:
+    - RHEL 7, docker-compose is not available in the official repositores so we must install the EPEL repo, refer to ["How to install docker-compose on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-centos-7):
 
-    ```bash
-    sudo yum install -y docker docker-compose git
-    ```
+        ```bash
+        sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+        sudo yum install -y python-pip docker-compose git
+        sudo yum upgrade -y python*
+        ```
+
+        Disable SELinux:
+
+        ```bash
+        sudo setenforce 0
+        ```
 
 3. Start the docker daemon
 
@@ -51,6 +59,15 @@ Solution:
     sudo docker-compose up
     ```
 
+6. Finally access the service at:
+
+    http://*host_ip_address*
+
+    HAProxy statistics:
+
+    http://*host_ip_address*/stats
+
+    
 How this works:
 ===============
 
